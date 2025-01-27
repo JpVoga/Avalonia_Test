@@ -5,5 +5,10 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Avalonia_Test.MainWindow"
         Title="Avalonia_Test">
-    Welcome to Avalonia!
+
+    <!-- Window may only have one top element! -->
+    <!-- '<StackPanel>' stacks things on horizontally or vertically -->
+    <!-- First Column 200 width, second one proportional unit -->
+    <Grid ColumnDefinitions="200, *" Background="{DynamicResource ResourceKey=PrimaryBackground}">
+    </Grid>
 </Window>

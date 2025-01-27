@@ -64,3 +64,4 @@ c:\Practice\Avalonia_Test\obj\Debug\net9.0\refint\Avalonia\Avalonia_Test.dll
 C:\Practice\Avalonia_Test\obj\Debug\net9.0\Avalonia.4986385D.Up2Date
 C:\Practice\Avalonia_Test\obj\Debug\net9.0\Avalonia_Test.genruntimeconfig.cache
 C:\Practice\Avalonia_Test\obj\Debug\net9.0\ref\Avalonia_Test.dll
+c:\Practice\Avalonia_Test\obj\Debug\net9.0\Avalonia_Test.sourcelink.json
