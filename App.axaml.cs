@@ -1,10 +1,11 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Platform;
 
 namespace Avalonia_Test;
 
-public partial class App : Application
+public partial class App: Application
 {
     public override void Initialize()
     {
@@ -15,7 +16,7 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow();
+            desktop.MainWindow = new MainWindow(); // Main window is passed here (for desktop at least).
         }
 
         base.OnFrameworkInitializationCompleted();
