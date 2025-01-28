@@ -7,8 +7,6 @@ namespace Avalonia_Test;
 
 public partial class MainWindow: Window
 {
-    //public Bitmap? CourseLogo = new Bitmap(AssetLoader.Open(new Uri("avares://Avalonia_Test/Assets/courseLogo.jpg")));
-
     public MainWindow()
     {
         InitializeComponent();
