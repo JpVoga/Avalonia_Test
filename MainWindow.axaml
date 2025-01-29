@@ -14,16 +14,19 @@
     <Grid ColumnDefinitions="Auto, *" Background="{DynamicResource ResourceKey=PrimaryBackground}">
         <Border Grid.Column="0" Padding="20" Background="{DynamicResource ResourceKey=PrimaryBackgroundGradient}">
             <Grid RowDefinitions="*, Auto">
-                <StackPanel Grid.Row="0">
+                <StackPanel Grid.Row="0" Spacing="12">
                     <!--<Image Source="avares://Avalonia_Test/assets/..."/>--> <!-- For things that are supported -->
                     <Svg Path="avares://Avalonia_Test/assets/images/logo.svg" Width="220" /> <!-- Had to 'dotnet add package Avalonia.Svg.Skia' -->
-                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">Home</Button>
-                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">Process</Button>
-                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">Actions</Button>
-                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">Macros</Button>
-                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">Reporter</Button>
-                    <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">History</Button>
+
+                    <Button HorizontalAlignment="Stretch">Home</Button>
+                    <Button HorizontalAlignment="Stretch">Process</Button>
+                    <Button HorizontalAlignment="Stretch">Actions</Button>
+                    <Button HorizontalAlignment="Stretch">Macros</Button>
+                    <Button HorizontalAlignment="Stretch">Reporter</Button>
+                    <Button HorizontalAlignment="Stretch">History</Button>
                 </StackPanel>
+
+                <Button Grid.Row="1">Settings</Button>
             </Grid>
         </Border>
     </Grid>

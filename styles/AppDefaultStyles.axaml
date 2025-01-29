@@ -1,10 +1,22 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
     <Design.PreviewWith>
-        <Border Padding="20">
-            <Button> <!-- Or <Button Content="Hello World"> -->
-                <Button.Content>Hello World!</Button.Content>
+        <Border Padding="20" Background="{DynamicResource ResourceKey=PrimaryBackgroundGradient}" Width="200">
+            <Button>
+                <Button.Content>Hello World!</Button.Content> <!-- Or 'Content="Hello World"' in the 'Button' tag -->
             </Button>
         </Border>
     </Design.PreviewWith>
+
+    <Style Selector="Button"> <!-- Selector is like CSS (Ex: 'Tag.class#id') -->
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=PrimaryBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=PrimaryForeground}"/> <!-- Sometimes I have to recompile for changes to show in preview, such as this one -->
+        <Setter Property="FontSize">20</Setter>
+    </Style>
+
+    <Style Selector="Button:pointerover /template/ ContentPresenter"> <!-- For mouse (or touch I think) over --> <!-- 'pointerover' not 'pointerOver'! -->
+        <Setter Property="Background" Value="{DynamicResource ResourceKey=PrimaryHoverBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=PrimaryHoverForeground}"/>
+    </Style>
 </Styles>

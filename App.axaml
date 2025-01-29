@@ -10,10 +10,16 @@
     </Application.Styles>
 
     <Application.Resources>
+        <!-- Normal styles: -->
         <SolidColorBrush x:Key="PrimaryBackground">#141720</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryForeground">#CFCFCF</SolidColorBrush>
         <LinearGradientBrush x:Key="PrimaryBackgroundGradient" StartPoint="0%, 0%" EndPoint="100%, 0%"> <!-- Top right start to top left end -->
             <GradientStop Offset="0" Color="#111214" /> <!-- Start (0) -->
             <GradientStop Offset="1" Color="#151E3E" /> <!-- End   (1) -->
         </LinearGradientBrush>
+
+        <!-- Hover styles: -->
+        <SolidColorBrush x:Key="PrimaryHoverBackground">#333B5A</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryHoverForeground">#FFFFFF</SolidColorBrush>
     </Application.Resources>
 </Application>
