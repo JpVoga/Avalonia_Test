@@ -18,7 +18,13 @@
                     <!--<Image Source="avares://Avalonia_Test/assets/..."/>--> <!-- For things that are supported -->
                     <Svg Path="avares://Avalonia_Test/assets/images/logo.svg" Width="220" /> <!-- Had to 'dotnet add package Avalonia.Svg.Skia' -->
 
-                    <Button HorizontalAlignment="Stretch">Home</Button>
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xe2c2;</Label> 
+                            <Label>Home</Label>
+                        </StackPanel>
+                    </Button>
+
                     <Button HorizontalAlignment="Stretch">Process</Button>
                     <Button HorizontalAlignment="Stretch">Actions</Button>
                     <Button HorizontalAlignment="Stretch">Macros</Button>

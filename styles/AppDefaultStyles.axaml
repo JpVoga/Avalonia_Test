@@ -9,14 +9,19 @@
         </Border>
     </Design.PreviewWith>
 
-    <Style Selector="Button"> <!-- Selector is like CSS (Ex: 'Tag.class#id') -->
+    <Style Selector="Button"> <!-- Selector is like CSS, but can't select without tag! (Ex: 'Tag.class#id') -->
+        <Setter Property="Padding">10 10 10 10</Setter> <!-- Left Top Right Bottom -->
         <Setter Property="Background" Value="{DynamicResource ResourceKey=PrimaryBackground}"/>
-        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=PrimaryForeground}"/> <!-- Sometimes I have to recompile for changes to show in preview, such as this one -->
+        <Setter Property="Foreground" Value="{DynamicResource ResourceKey=PrimaryForeground}"/>
         <Setter Property="FontSize">20</Setter>
     </Style>
 
     <Style Selector="Button:pointerover /template/ ContentPresenter"> <!-- For mouse (or touch I think) over --> <!-- 'pointerover' not 'pointerOver'! -->
         <Setter Property="Background" Value="{DynamicResource ResourceKey=PrimaryHoverBackground}"/>
         <Setter Property="Foreground" Value="{DynamicResource ResourceKey=PrimaryHoverForeground}"/>
+    </Style>
+
+    <Style Selector="Label.Icon">
+        <Setter Property="FontFamily" Value="{DynamicResource ResourceKey=PhosphorFill}" />
     </Style>
 </Styles>
