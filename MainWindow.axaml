@@ -25,14 +25,45 @@
                         </StackPanel>
                     </Button>
 
-                    <Button HorizontalAlignment="Stretch">Process</Button>
-                    <Button HorizontalAlignment="Stretch">Actions</Button>
-                    <Button HorizontalAlignment="Stretch">Macros</Button>
-                    <Button HorizontalAlignment="Stretch">Reporter</Button>
-                    <Button HorizontalAlignment="Stretch">History</Button>
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xe346;</Label> 
+                            <Label>Process</Label>
+                        </StackPanel>
+                    </Button>
+
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xe7f2;</Label> 
+                            <Label>Actions</Label>
+                        </StackPanel>
+                    </Button>
+
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xe3ee;</Label> 
+                            <Label>Macros</Label>
+                        </StackPanel>
+                    </Button>
+
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xeb7a;</Label> 
+                            <Label>Reporter</Label>
+                        </StackPanel>
+                    </Button>
+
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xe03a;</Label> 
+                            <Label>History</Label>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
 
-                <Button Grid.Row="1">Settings</Button>
+                <Button Classes="TransparentButton" Grid.Row="1">
+                    <Label Classes="Icon IconOnly">&#xe272;</Label>
+                </Button>
             </Grid>
         </Border>
     </Grid>

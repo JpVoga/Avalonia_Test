@@ -2,26 +2,44 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Design.PreviewWith>
-        <Border Padding="20" Background="{DynamicResource ResourceKey=PrimaryBackgroundGradient}" Width="200">
-            <Button>
-                <Button.Content>Hello World!</Button.Content> <!-- Or 'Content="Hello World"' in the 'Button' tag -->
-            </Button>
-        </Border>
+        <!-- Show this in preview! -->
     </Design.PreviewWith>
 
     <Style Selector="Button"> <!-- Selector is like CSS, but can't select without tag! (Ex: 'Tag.class#id') -->
-        <Setter Property="Padding">10 10 10 10</Setter> <!-- Left Top Right Bottom -->
+        <Setter Property="Padding">7 7 7 7</Setter> <!-- Left Top Right Bottom -->
         <Setter Property="Background" Value="{DynamicResource ResourceKey=PrimaryBackground}"/>
         <Setter Property="Foreground" Value="{DynamicResource ResourceKey=PrimaryForeground}"/>
         <Setter Property="FontSize">20</Setter>
+        <Setter Property="RenderTransform">scale(1)</Setter>
     </Style>
 
-    <Style Selector="Button:pointerover /template/ ContentPresenter"> <!-- For mouse (or touch I think) over --> <!-- 'pointerover' not 'pointerOver'! -->
+    <Style Selector="Button:pointerover"> <!-- For mouse (or touch I think) over --> <!-- 'pointerover' not 'pointerOver'! -->
+        <Setter Property="RenderTransform">scale(1.1)</Setter>
+    </Style>
+
+    <Style Selector="Button:pointerover /template/ ContentPresenter"> <!-- For visuals on pointer over, seems to need this, no clue why... -->
         <Setter Property="Background" Value="{DynamicResource ResourceKey=PrimaryHoverBackground}"/>
         <Setter Property="Foreground" Value="{DynamicResource ResourceKey=PrimaryHoverForeground}"/>
     </Style>
 
     <Style Selector="Label.Icon">
         <Setter Property="FontFamily" Value="{DynamicResource ResourceKey=PhosphorFill}" />
+        <Setter Property="Margin">0 2 0 0</Setter>
+    </Style>
+
+    <Style Selector="Label.IconOnly">
+        <Setter Property="Margin">0 0 0 0</Setter>
+    </Style>
+
+    <Style Selector="Button.TransparentButton">
+        <Setter Property="Background" Value="Transparent" />
+
+        <Style Selector="^ Label.Icon"> <!-- Parent then this -->
+            <Setter Property="FontFamily" Value="{DynamicResource ResourceKey=Phosphor}" />
+        </Style>
+    </Style>
+
+    <Style Selector="Button.TransparentButton:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
     </Style>
 </Styles>
