@@ -2,7 +2,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Design.PreviewWith>
-        <!-- Show this in preview! -->
+        <Border Padding="20" Background="{DynamicResource ResourceKey=PrimaryBackgroundGradient}">
+            <Button HorizontalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal">
+                    <Label Classes="Icon">&#xe2c2;</Label> 
+                    <Label>Hello</Label>
+                </StackPanel>
+            </Button>
+        </Border>
     </Design.PreviewWith>
 
     <Style Selector="Button"> <!-- Selector is like CSS, but can't select without tag! (Ex: 'Tag.class#id') -->
@@ -10,14 +17,34 @@
         <Setter Property="Background" Value="{DynamicResource ResourceKey=PrimaryBackground}"/>
         <Setter Property="Foreground" Value="{DynamicResource ResourceKey=PrimaryForeground}"/>
         <Setter Property="FontSize">20</Setter>
+        <Setter Property="CornerRadius">12.5</Setter>
         <Setter Property="RenderTransform">scale(1)</Setter>
+
+        <Setter Property="Transitions">
+            <Transitions>
+                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" /> <!-- Hours:Minutes:Seconds -->
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button /template/ ContentPresenter">
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.2" />
+                <BrushTransition Property="Foreground" Duration="0:0:0.2" />
+            </Transitions>
+        </Setter>
     </Style>
 
     <Style Selector="Button:pointerover"> <!-- For mouse (or touch I think) over --> <!-- 'pointerover' not 'pointerOver'! -->
         <Setter Property="RenderTransform">scale(1.1)</Setter>
     </Style>
 
-    <Style Selector="Button:pointerover /template/ ContentPresenter"> <!-- For visuals on pointer over, seems to need this, no clue why... -->
+    <Style Selector="Button:pressed">
+        <Setter Property="RenderTransform">scale(1)</Setter>
+    </Style>
+
+    <Style Selector="Button:pointerover /template/ ContentPresenter"> <!-- For CERTAIN visuals on pseudo class on same element, seems to need this, no clue why... -->
         <Setter Property="Background" Value="{DynamicResource ResourceKey=PrimaryHoverBackground}"/>
         <Setter Property="Foreground" Value="{DynamicResource ResourceKey=PrimaryHoverForeground}"/>
     </Style>
