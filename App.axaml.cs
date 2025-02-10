@@ -22,3 +22,5 @@ public partial class App: Application
         base.OnFrameworkInitializationCompleted();
     }
 }
+
+// For MVVM programming must 'dotnet add package CommunityToolkit.Mvvm'

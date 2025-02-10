@@ -4,9 +4,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="512"
         x:Class="Avalonia_Test.MainWindow"
+        xmlns:vm="clr-namespace:Avalonia_Test"
+        x:DataType="vm:MainViewModel"
         Title="Avalonia_Test"
         Width="1024" Height="512"
 >
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
 
     <!-- Window may only have one top element! -->
     <!-- '<StackPanel>' stacks things horizontally or vertically -->
@@ -21,7 +26,7 @@
                     <Button HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe2c2;</Label> 
-                            <Label>Home</Label>
+                            <Label Content="{Binding Path=Test}"></Label>
                         </StackPanel>
                     </Button>
 

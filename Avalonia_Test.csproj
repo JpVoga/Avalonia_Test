@@ -20,6 +20,8 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
 
-        <AvaloniaResource Include="assets/**" /> <!-- Important to be able to use 'avares' (Avalonia Resources) -->
+        <AvaloniaResource Include="assets/**" />
+
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" /> <!-- Important to be able to use 'avares' (Avalonia Resources) -->
     </ItemGroup>
 </Project>
