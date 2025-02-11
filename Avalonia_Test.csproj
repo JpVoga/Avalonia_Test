@@ -6,10 +6,12 @@
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+
+        <UsePreviewer>true</UsePreviewer>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.2.1" />
+        <PackageReference Include="Avalonia" Version="11.2.3" />
         <PackageReference Include="Avalonia.Desktop" Version="11.2.1" />
         <PackageReference Include="Avalonia.Svg.Skia" Version="11.2.0.2" />
         <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.1" />
@@ -20,8 +22,8 @@
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
 
-        <AvaloniaResource Include="assets/**" />
+        <AvaloniaResource Include="assets/**" /> <!-- Important to be able to use 'avares' (Avalonia Resources) -->
 
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" /> <!-- Important to be able to use 'avares' (Avalonia Resources) -->
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     </ItemGroup>
 </Project>

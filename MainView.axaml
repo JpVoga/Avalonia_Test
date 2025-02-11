@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="512"
-        x:Class="Avalonia_Test.MainWindow"
+        x:Class="Avalonia_Test.MainView"
         xmlns:vm="clr-namespace:Avalonia_Test"
         x:DataType="vm:MainViewModel"
         Title="Avalonia_Test"
@@ -73,3 +73,5 @@
         </Border>
     </Grid>
 </Window>
+
+<!-- To rename this file, had to change class and file name and the window's 'x:Class'. Also had to "Create previewer assets" on vscode command palette. -->
