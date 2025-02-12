@@ -20,48 +20,49 @@
         <Border Grid.Column="0" Padding="20" Background="{DynamicResource ResourceKey=PrimaryBackgroundGradient}">
             <Grid RowDefinitions="*, Auto">
                 <StackPanel Grid.Row="0" Spacing="12">
-                    <!--<Image Source="avares://Avalonia_Test/assets/..."/>--> <!-- For things that are supported -->
-                    <Svg Path="avares://Avalonia_Test/assets/images/logo.svg" Width="220" /> <!-- Had to 'dotnet add package Avalonia.Svg.Skia' -->
+                    <!-- <Svg Path="avares://Avalonia_Test/assets/..."/> --> <!-- Insert SVG in markup -->
+                    <!-- Had to 'dotnet add package Avalonia.Svg.Skia' -->
+                    <Image PointerPressed="OnSideMenuImageClicked" Source="{Binding SideMenuImage}" Width="220" />
 
                     <Button HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe2c2;</Label> 
-                            <Label Content="{Binding Path=Test}"></Label>
+                            <Label IsVisible="{Binding SideMenuExpanded}">Home</Label>
                         </StackPanel>
                     </Button>
 
                     <Button HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe346;</Label> 
-                            <Label>Process</Label>
+                            <Label IsVisible="{Binding SideMenuExpanded}">Process</Label>
                         </StackPanel>
                     </Button>
 
                     <Button HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe7f2;</Label> 
-                            <Label>Actions</Label>
+                            <Label IsVisible="{Binding SideMenuExpanded}">Actions</Label>
                         </StackPanel>
                     </Button>
 
                     <Button HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe3ee;</Label> 
-                            <Label>Macros</Label>
+                            <Label IsVisible="{Binding SideMenuExpanded}">Macros</Label>
                         </StackPanel>
                     </Button>
 
                     <Button HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xeb7a;</Label> 
-                            <Label>Reporter</Label>
+                            <Label IsVisible="{Binding SideMenuExpanded}">Reporter</Label>
                         </StackPanel>
                     </Button>
 
                     <Button HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe03a;</Label> 
-                            <Label>History</Label>
+                            <Label IsVisible="{Binding SideMenuExpanded}">History</Label>
                         </StackPanel>
                     </Button>
                 </StackPanel>
