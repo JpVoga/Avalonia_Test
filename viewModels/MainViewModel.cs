@@ -1,5 +1,5 @@
-using Avalonia.Svg.Skia;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Avalonia_Test;
 
@@ -15,8 +15,12 @@ public partial class MainViewModel: ViewModelBase {
     }*/
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(SideMenuImage))] // Update binding value when this changes
-    private bool sideMenuExpanded = true;
+    //[NotifyPropertyChangedFor(nameof(SomeProp))] // Update binding value when this changes
+    private bool _sideMenuExpanded = true;
 
-    public SvgImage SideMenuImage => new SvgImage{Source = SvgSource.Load($"avares://{nameof(Avalonia_Test)}/assets/images/{(SideMenuExpanded? "logo":"icon")}.svg")};
+
+    [RelayCommand]
+    private void SideMenuResize() {
+        SideMenuExpanded = !SideMenuExpanded;
+    }
 }

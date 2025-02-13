@@ -12,6 +12,14 @@
         </Border>
     </Design.PreviewWith>
 
+    <Style Selector="Border">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Width" Duration="0:0:0.1" /> <!-- Double as in numeric type, not  -->
+            </Transitions>
+        </Setter>
+    </Style>
+
     <Style Selector="Button"> <!-- Selector is like CSS, but can't select without tag! (Ex: 'Tag.class#id') -->
         <Setter Property="Padding">7 7 7 7</Setter> <!-- Left Top Right Bottom -->
         <Setter Property="Background" Value="{DynamicResource ResourceKey=PrimaryBackground}"/>

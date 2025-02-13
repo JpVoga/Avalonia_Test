@@ -20,9 +20,11 @@
         <Border Grid.Column="0" Padding="20" Background="{DynamicResource ResourceKey=PrimaryBackgroundGradient}">
             <Grid RowDefinitions="*, Auto">
                 <StackPanel Grid.Row="0" Spacing="12">
-                    <!-- <Svg Path="avares://Avalonia_Test/assets/..."/> --> <!-- Insert SVG in markup -->
                     <!-- Had to 'dotnet add package Avalonia.Svg.Skia' -->
-                    <Image PointerPressed="OnSideMenuImageClicked" Source="{Binding SideMenuImage}" Width="220" />
+                    <!-- Normal image: '<Image Source= />' -->
+                    <StackPanel></StackPanel>
+                    <Svg PointerPressed="OnSideMenuImageClicked" Path="avares://Avalonia_Test/assets/images/logo.svg" Width="220" IsVisible="{Binding SideMenuExpanded}" />
+                    <Svg PointerPressed="OnSideMenuImageClicked" Path="avares://Avalonia_Test/assets/images/icon.svg" Width="20" IsVisible="{Binding !SideMenuExpanded}" />
 
                     <Button HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
