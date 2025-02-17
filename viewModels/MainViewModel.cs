@@ -25,7 +25,7 @@ public partial class MainViewModel: ViewModelBase {
     private readonly ProcessPageViewModel testProcessPage = new();
 
     public MainViewModel() {
-        CurrentPage = testHomePage;
+        CurrentPage = testHomePage; // Stopped at video 4 15:00
     }
 
     [RelayCommand]
