@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="512"
         x:Class="Avalonia_Test.MainView"
+        xmlns:view="clr-namespace:Avalonia_Test"
         xmlns:vm="clr-namespace:Avalonia_Test"
         x:DataType="vm:MainViewModel"
         Title="Avalonia_Test"
@@ -74,6 +75,8 @@
                 </Button>
             </Grid>
         </Border>
+
+        <ContentControl Grid.Column="1" Content="{Binding CurrentPage}" />
     </Grid>
 </Window>
 

@@ -1,5 +1,5 @@
-using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Avalonia_Test;
 
@@ -18,6 +18,15 @@ public partial class MainViewModel: ViewModelBase {
     //[NotifyPropertyChangedFor(nameof(SomeProp))] // Update binding value when this changes
     private bool _sideMenuExpanded = true;
 
+    [ObservableProperty]
+    private ViewModelBase _currentPage;
+
+    private readonly HomePageViewModel testHomePage = new();
+    private readonly ProcessPageViewModel testProcessPage = new();
+
+    public MainViewModel() {
+        CurrentPage = testHomePage;
+    }
 
     [RelayCommand]
     private void SideMenuResize() {

@@ -13,10 +13,11 @@ public partial class MainView: Window
     }
 
     private void OnSideMenuImageClicked(object sender, PointerPressedEventArgs args) {
-        if (args.ClickCount >= 2) {
-            if (DataContext is MainViewModel mainViewModel) {
+        if (DataContext is MainViewModel mainViewModel) {
+            if (args.ClickCount >= 2) {
                 mainViewModel.SideMenuResizeCommand?.Execute(null);
             }
         }
+        else throw new NotImplementedException();
     }
 }
