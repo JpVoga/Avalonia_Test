@@ -10,10 +10,6 @@
         Title="Avalonia_Test"
         Width="1024" Height="512"
 >
-    <Window.DataContext>
-        <vm:MainViewModel/>
-    </Window.DataContext>
-
     <!-- Window may only have one top element! -->
     <!-- '<StackPanel>' stacks things horizontally or vertically -->
     <!-- First Column take as much width as it needs for components, second one proportional unit of the rest -->
@@ -27,42 +23,42 @@
                     <Svg PointerPressed="OnSideMenuImageClicked" Path="avares://Avalonia_Test/assets/images/logo.svg" Width="220" IsVisible="{Binding SideMenuExpanded}" />
                     <Svg PointerPressed="OnSideMenuImageClicked" Path="avares://Avalonia_Test/assets/images/icon.svg" Width="20" IsVisible="{Binding !SideMenuExpanded}" />
 
-                    <Button HorizontalAlignment="Stretch">
+                    <Button x:Name="HomeButton" Classes.ActivePageButton="{Binding HomePageIsActive}" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe2c2;</Label> 
                             <Label IsVisible="{Binding SideMenuExpanded}">Home</Label>
                         </StackPanel>
                     </Button>
 
-                    <Button HorizontalAlignment="Stretch">
+                    <Button x:Name="ProcessButton" Classes.ActivePageButton="{Binding ProcessPageIsActive}" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe346;</Label> 
                             <Label IsVisible="{Binding SideMenuExpanded}">Process</Label>
                         </StackPanel>
                     </Button>
 
-                    <Button HorizontalAlignment="Stretch">
+                    <Button x:Name="ActionsButton" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe7f2;</Label> 
                             <Label IsVisible="{Binding SideMenuExpanded}">Actions</Label>
                         </StackPanel>
                     </Button>
 
-                    <Button HorizontalAlignment="Stretch">
+                    <Button x:Name="MacrosButton" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe3ee;</Label> 
                             <Label IsVisible="{Binding SideMenuExpanded}">Macros</Label>
                         </StackPanel>
                     </Button>
 
-                    <Button HorizontalAlignment="Stretch">
+                    <Button x:Name="ReporterButton" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xeb7a;</Label> 
                             <Label IsVisible="{Binding SideMenuExpanded}">Reporter</Label>
                         </StackPanel>
                     </Button>
 
-                    <Button HorizontalAlignment="Stretch">
+                    <Button x:Name="HistoryButton" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe03a;</Label> 
                             <Label IsVisible="{Binding SideMenuExpanded}">History</Label>
@@ -70,7 +66,7 @@
                     </Button>
                 </StackPanel>
 
-                <Button Classes="TransparentButton" Grid.Row="1">
+                <Button Classes="TransparentButton ActivePageButton" Grid.Row="1">
                     <Label Classes="Icon IconOnly">&#xe272;</Label>
                 </Button>
             </Grid>

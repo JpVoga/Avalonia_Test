@@ -24,6 +24,7 @@
         </LinearGradientBrush>
         <SolidColorBrush x:Key="PrimaryHoverBackground">#333B5A</SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryHoverForeground">#FFFFFF</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryActiveBackground">#6633DD</SolidColorBrush>
 
         <FontFamily x:Key="Phosphor">avares://Avalonia_Test/assets/fonts/Phosphor.ttf#Phosphor</FontFamily> <!-- Must put the name that shows up when font file is opened -->
         <FontFamily x:Key="PhosphorBold">avares://Avalonia_Test/assets/fonts/Phosphor-Bold.ttf#Phosphor-Bold</FontFamily>

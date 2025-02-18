@@ -1,9 +1,11 @@
+using System;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Avalonia_Test;
 
 public partial class MainViewModel: ViewModelBase {
+    private const string buttonActiveClass = "ActivePageButton";
 
     // Seems to be how you observe properties
     /*private string _testProp = "prop 0";
@@ -19,17 +21,37 @@ public partial class MainViewModel: ViewModelBase {
     private bool _sideMenuExpanded = true;
 
     [ObservableProperty]
-    private ViewModelBase _currentPage;
+    [NotifyPropertyChangedFor(nameof(HomePageIsActive), nameof(ProcessPageIsActive))]
+    private ViewModelBase _currentPage = null!; // Certain that it will be set in constructor
 
-    private readonly HomePageViewModel testHomePage = new();
-    private readonly ProcessPageViewModel testProcessPage = new();
+    #region Home
+        private readonly HomePageViewModel homePage = new();
+        public bool HomePageIsActive => GetPageIsActive(homePage);
+    #endregion
+
+    #region Process
+        private readonly ProcessPageViewModel processPage = new();
+        public bool ProcessPageIsActive => GetPageIsActive(processPage);
+    #endregion
 
     public MainViewModel() {
-        CurrentPage = testHomePage; // Stopped at video 4 15:00
+        CurrentPage = homePage;
     }
 
     [RelayCommand]
     private void SideMenuResize() {
         SideMenuExpanded = !SideMenuExpanded;
     }
+
+    [RelayCommand]
+    private void GoToHome() {
+        CurrentPage = homePage;
+    }
+
+    [RelayCommand]
+    private void GoToProcess() {
+        CurrentPage = processPage;
+    }
+
+    private bool GetPageIsActive(ViewModelBase page) => page == CurrentPage;
 }

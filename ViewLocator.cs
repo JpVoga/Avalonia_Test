@@ -1,4 +1,7 @@
 using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 
@@ -13,12 +16,20 @@ public class ViewLocator: IDataTemplate
         if (!viewModelName.EndsWith("ViewModel")) throw new ArgumentException("View model name must end in \"ViewModel\"");
 
         string viewName = viewModelName.Replace("ViewModel", "View", StringComparison.InvariantCulture);
-        Type? viewType = Type.GetType($"Avalonia_Test.{viewName}");
+        var namespaces = Assembly.GetExecutingAssembly().GetTypes().Select(t => t.Namespace).Distinct();
+        Type? viewType = null;
+        foreach (var @namespace in namespaces) {
+            if (@namespace is not null) viewType = Type.GetType($"{@namespace}.{viewName}");
+            if (viewType is not null) break;
+        }
 
         if (viewType is null) throw new ArgumentException($"View model named \"{viewModelName}\" does not have equivalent view \"{viewName}\"");
 
         object? view = Activator.CreateInstance(viewType);
-        if (view is Control control) return control;
+        if (view is Control control) {
+            control.DataContext = data; // Set view's view model
+            return control;
+        }
         else throw new ArgumentException($"Class \"{viewName}\" must be a view type constructible with no parameters.");
     }
 

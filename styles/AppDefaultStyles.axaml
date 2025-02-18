@@ -77,4 +77,22 @@
     <Style Selector="Button.TransparentButton:pointerover /template/ ContentPresenter">
         <Setter Property="Background" Value="Transparent" />
     </Style>
+
+    <Style Selector="Button.ActivePageButton">
+        <Setter Property="Background" Value="{DynamicResource PrimaryActiveBackground}" />
+    </Style>
+
+    <Style Selector="Button.ActivePageButton:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource PrimaryActiveBackground}" />
+    </Style>
+
+    <Style Selector="Button.ActivePageButton.TransparentButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryActiveBackground}" />
+    </Style>
+
+    <Style Selector="Button.ActivePageButton.TransparentButton:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryActiveBackground}" />
+    </Style>
 </Styles>
