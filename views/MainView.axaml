@@ -23,6 +23,7 @@
                     <Svg PointerPressed="OnSideMenuImageClicked" Path="avares://Avalonia_Test/assets/images/logo.svg" Width="220" IsVisible="{Binding SideMenuExpanded}" />
                     <Svg PointerPressed="OnSideMenuImageClicked" Path="avares://Avalonia_Test/assets/images/icon.svg" Width="20" IsVisible="{Binding !SideMenuExpanded}" />
 
+                    <!-- Have "ActivePageButton" class if passed condition is true -->
                     <Button x:Name="HomeButton" Classes.ActivePageButton="{Binding HomePageIsActive}" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe2c2;</Label> 
