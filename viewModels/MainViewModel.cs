@@ -21,7 +21,13 @@ public partial class MainViewModel: ViewModelBase {
     private bool _sideMenuExpanded = true;
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(HomePageIsActive), nameof(ProcessPageIsActive))]
+    [NotifyPropertyChangedFor(nameof(HomePageIsActive))]
+    [NotifyPropertyChangedFor(nameof(ProcessPageIsActive))]
+    [NotifyPropertyChangedFor(nameof(ActionsPageIsActive))]
+    [NotifyPropertyChangedFor(nameof(MacrosPageIsActive))]
+    [NotifyPropertyChangedFor(nameof(ReporterPageIsActive))]
+    [NotifyPropertyChangedFor(nameof(HistoryPageIsActive))]
+    [NotifyPropertyChangedFor(nameof(SettingsPageIsActive))]
     private ViewModelBase _currentPage = null!; // Certain that it will be set in constructor
 
     #region Home
@@ -32,6 +38,31 @@ public partial class MainViewModel: ViewModelBase {
     #region Process
         private readonly ProcessPageViewModel processPage = new();
         public bool ProcessPageIsActive => GetPageIsActive(processPage);
+    #endregion
+
+    #region Actions
+        private readonly ActionsPageViewModel actionsPage = new();
+        public bool ActionsPageIsActive => GetPageIsActive(actionsPage);
+    #endregion
+
+    #region Macros
+        private readonly MacrosPageViewModel macrosPage = new();
+        public bool MacrosPageIsActive => GetPageIsActive(macrosPage);
+    #endregion
+
+    #region Reporter
+        private readonly ReporterPageViewModel reporterPage = new();
+        public bool ReporterPageIsActive => GetPageIsActive(reporterPage);
+    #endregion
+
+    #region History
+        private readonly HistoryPageViewModel historyPage = new();
+        public bool HistoryPageIsActive => GetPageIsActive(historyPage);
+    #endregion
+
+    #region Settings
+        private readonly SettingsPageViewModel settingsPage = new();
+        public bool SettingsPageIsActive => GetPageIsActive(settingsPage);
     #endregion
 
     public MainViewModel() {
@@ -51,6 +82,31 @@ public partial class MainViewModel: ViewModelBase {
     [RelayCommand]
     private void GoToProcess() {
         CurrentPage = processPage;
+    }
+
+    [RelayCommand]
+    private void GoToActions() {
+        CurrentPage = actionsPage;
+    }
+
+    [RelayCommand]
+    private void GoToMacros() {
+        CurrentPage = macrosPage;
+    }
+
+    [RelayCommand]
+    private void GoToReporter() {
+        CurrentPage = reporterPage;
+    }
+
+    [RelayCommand]
+    private void GoToHistory() {
+        CurrentPage = historyPage;
+    }
+
+    [RelayCommand]
+    private void GoToSettings() {
+        CurrentPage = settingsPage;
     }
 
     private bool GetPageIsActive(ViewModelBase page) => page == CurrentPage;

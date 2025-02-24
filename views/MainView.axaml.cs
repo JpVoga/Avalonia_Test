@@ -16,6 +16,11 @@ public partial class MainView: Window {
         // Seems that for button pointer pressed events, MUST manually subscribe LIKE THIS in code behind!
         HomeButton.AddHandler(PointerPressedEvent, OnHomeButtonClicked, handledEventsToo: true);
         ProcessButton.AddHandler(PointerPressedEvent, OnProcessButtonClicked, handledEventsToo: true);
+        ActionsButton.AddHandler(PointerPressedEvent, OnActionsButtonClicked, handledEventsToo: true);
+        MacrosButton.AddHandler(PointerPressedEvent, OnMacrosButtonClicked, handledEventsToo: true);
+        ReporterButton.AddHandler(PointerPressedEvent, OnReporterButtonClicked, handledEventsToo: true);
+        HistoryButton.AddHandler(PointerPressedEvent, OnHistoryButtonClicked, handledEventsToo: true);
+        SettingsButton.AddHandler(PointerPressedEvent, OnSettingsButtonClicked, handledEventsToo: true);
     }
 
     private void OnSideMenuImageClicked(object? sender, PointerPressedEventArgs args) {
@@ -30,5 +35,25 @@ public partial class MainView: Window {
 
     private void OnProcessButtonClicked(object? sender, PointerPressedEventArgs args) {
         MainViewModel?.GoToProcessCommand?.Execute(null);
+    }
+
+    private void OnActionsButtonClicked(object? sender, PointerPressedEventArgs args) {
+        MainViewModel?.GoToActionsCommand?.Execute(null);
+    }
+
+    private void OnMacrosButtonClicked(object? sender, PointerPressedEventArgs args) {
+        MainViewModel?.GoToMacrosCommand?.Execute(null);
+    }
+
+    private void OnReporterButtonClicked(object? sender, PointerPressedEventArgs args) {
+        MainViewModel?.GoToReporterCommand?.Execute(null);
+    }
+
+    private void OnHistoryButtonClicked(object? sender, PointerPressedEventArgs args) {
+        MainViewModel?.GoToHistoryCommand?.Execute(null);
+    }
+
+    private void OnSettingsButtonClicked(object? sender, PointerPressedEventArgs args) {
+        MainViewModel?.GoToSettingsCommand?.Execute(null);
     }
 }

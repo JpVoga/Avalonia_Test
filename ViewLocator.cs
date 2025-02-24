@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
+using Tmds.DBus.Protocol;
 
 namespace Avalonia_Test;
 
@@ -17,8 +19,9 @@ public class ViewLocator: IDataTemplate
 
         string viewName = viewModelName.Replace("ViewModel", "View", StringComparison.InvariantCulture);
         var namespaces = Assembly.GetExecutingAssembly().GetTypes().Select(t => t.Namespace).Distinct();
+
         Type? viewType = null;
-        foreach (var @namespace in namespaces) {
+        foreach (var @namespace in namespaces ?? []) {
             if (@namespace is not null) viewType = Type.GetType($"{@namespace}.{viewName}");
             if (viewType is not null) break;
         }

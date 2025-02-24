@@ -3,14 +3,11 @@
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-            x:Class="Avalonia_Test.HomePageView"
+            x:Class="Avalonia_Test.HistoryPageView"
             xmlns:view="clr-namespace:Avalonia_Test"
             xmlns:vm="clr-namespace:Avalonia_Test"
-            x:DataType="vm:HomePageViewModel"
+            x:DataType="vm:HistoryPageViewModel"
             Foreground="White"
 >
-    Welcome to Home!
+    Welcome to History!
 </UserControl>
-
-
-<!-- dotnet new avalonia.usercontrol -p:n [namespace] -n [name] -->

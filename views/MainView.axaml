@@ -38,28 +38,28 @@
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="ActionsButton" HorizontalAlignment="Stretch">
+                    <Button x:Name="ActionsButton" Classes.ActivePageButton="{Binding ActionsPageIsActive}" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe7f2;</Label> 
                             <Label IsVisible="{Binding SideMenuExpanded}">Actions</Label>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="MacrosButton" HorizontalAlignment="Stretch">
+                    <Button x:Name="MacrosButton" Classes.ActivePageButton="{Binding MacrosPageIsActive}" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe3ee;</Label> 
                             <Label IsVisible="{Binding SideMenuExpanded}">Macros</Label>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="ReporterButton" HorizontalAlignment="Stretch">
+                    <Button x:Name="ReporterButton" Classes.ActivePageButton="{Binding ReporterPageIsActive}" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xeb7a;</Label> 
                             <Label IsVisible="{Binding SideMenuExpanded}">Reporter</Label>
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="HistoryButton" HorizontalAlignment="Stretch">
+                    <Button x:Name="HistoryButton" Classes.ActivePageButton="{Binding HistoryPageIsActive}" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
                             <Label Classes="Icon">&#xe03a;</Label> 
                             <Label IsVisible="{Binding SideMenuExpanded}">History</Label>
@@ -67,7 +67,7 @@
                     </Button>
                 </StackPanel>
 
-                <Button Classes="TransparentButton" Grid.Row="1">
+                <Button x:Name="SettingsButton" Classes.ActivePageButton="{Binding SettingsPageIsActive}" Classes="TransparentButton" Grid.Row="1">
                     <Label Classes="Icon IconOnly">&#xe272;</Label>
                 </Button>
             </Grid>
