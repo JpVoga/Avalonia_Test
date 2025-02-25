@@ -12,7 +12,7 @@ namespace Avalonia_Test;
 public class ViewLocator: IDataTemplate
 {
     public Control? Build(object? data) { // Return expected view based on view model
-        if (data is null) throw new ArgumentNullException("Data to build view must not be null!");
+        ArgumentNullException.ThrowIfNull(data, nameof(data));
 
         string viewModelName = data.GetType().Name;
         if (!viewModelName.EndsWith("ViewModel")) throw new ArgumentException("View model name must end in \"ViewModel\"");
@@ -37,6 +37,6 @@ public class ViewLocator: IDataTemplate
     }
 
     public bool Match(object? data) {
-        return data is ViewModelBase;
+        return data is ViewModelBase; // Data must be view model
     }
 }

@@ -8,9 +8,7 @@ namespace Avalonia_Test;
 public partial class MainView: Window {
     public MainViewModel MainViewModel => (DataContext as MainViewModel)!;
 
-    public MainView()
-    {
-        DataContext = new MainViewModel(); // MUST set this!!!
+    public MainView() {
         InitializeComponent();
 
         // Seems that for button pointer pressed events, MUST manually subscribe LIKE THIS in code behind!
