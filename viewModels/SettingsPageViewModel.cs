@@ -1,10 +1,8 @@
-using System.Diagnostics;
-
 namespace Avalonia_Test;
 
-public partial class SettingsPageViewModel: ViewModelBase {
-
+public partial class SettingsPageViewModel: PageViewModel {
     public SettingsPageViewModel() {
-        Trace.WriteLine("Made instance of settings!");
+        //System.Diagnostics.Trace.WriteLine("Made instance of settings!");
+        Page = Page.Settings;
     }
 }

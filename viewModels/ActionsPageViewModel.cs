@@ -1,4 +1,7 @@
 namespace Avalonia_Test;
 
-public partial class ActionsPageViewModel: ViewModelBase {
+public partial class ActionsPageViewModel: PageViewModel {
+    public ActionsPageViewModel() {
+        Page = Page.Actions;
+    }
 }

@@ -16,6 +16,8 @@ public partial class MainViewModel: ViewModelBase {
         }
     }*/
 
+    private readonly PageFactory pageFactory;
+
     [ObservableProperty]
     //[NotifyPropertyChangedFor(nameof(SomeProp))] // Update binding value when this changes
     private bool _sideMenuExpanded = true;
@@ -28,101 +30,44 @@ public partial class MainViewModel: ViewModelBase {
     [NotifyPropertyChangedFor(nameof(ReporterPageIsActive))]
     [NotifyPropertyChangedFor(nameof(HistoryPageIsActive))]
     [NotifyPropertyChangedFor(nameof(SettingsPageIsActive))]
-    private ViewModelBase _currentPage = null!; // Certain that it will be set in constructor
+    private PageViewModel currentPage = null!; // Certain that it will be set in constructor
 
-    #region Home
-        private readonly HomePageViewModel homePage;
-        public bool HomePageIsActive => GetPageIsActive(homePage);
-    #endregion
+    public bool HomePageIsActive => GetPageIsActive(Page.Home);
+    public bool ProcessPageIsActive => GetPageIsActive(Page.Process);
+    public bool ActionsPageIsActive => GetPageIsActive(Page.Actions);
+    public bool MacrosPageIsActive => GetPageIsActive(Page.Macros);
+    public bool ReporterPageIsActive => GetPageIsActive(Page.Reporter);
+    public bool HistoryPageIsActive => GetPageIsActive(Page.History);
+    public bool SettingsPageIsActive => GetPageIsActive(Page.Settings);
 
-    #region Process
-        private readonly ProcessPageViewModel processPage;
-        public bool ProcessPageIsActive => GetPageIsActive(processPage);
-    #endregion
-
-    #region Actions
-        private readonly ActionsPageViewModel actionsPage;
-        public bool ActionsPageIsActive => GetPageIsActive(actionsPage);
-    #endregion
-
-    #region Macros
-        private readonly MacrosPageViewModel macrosPage;
-        public bool MacrosPageIsActive => GetPageIsActive(macrosPage);
-    #endregion
-
-    #region Reporter
-        private readonly ReporterPageViewModel reporterPage;
-        public bool ReporterPageIsActive => GetPageIsActive(reporterPage);
-    #endregion
-
-    #region History
-        private readonly HistoryPageViewModel historyPage;
-        public bool HistoryPageIsActive => GetPageIsActive(historyPage);
-    #endregion
-
-    #region Settings
-        private readonly SettingsPageViewModel settingsPage;
-        public bool SettingsPageIsActive => GetPageIsActive(settingsPage);
-    #endregion
-
-    public MainViewModel(
-        HomePageViewModel homePage,
-        ProcessPageViewModel processPage,
-        ActionsPageViewModel actionsPage,
-        MacrosPageViewModel macrosPage,
-        ReporterPageViewModel reporterPage,
-        HistoryPageViewModel historyPage,
-        SettingsPageViewModel settingsPage
-    ) {
-        this.homePage = homePage;
-        this.processPage = processPage;
-        this.actionsPage = actionsPage;
-        this.macrosPage = macrosPage;
-        this.reporterPage = reporterPage;
-        this.historyPage = historyPage;
-        this.settingsPage = settingsPage;
-        CurrentPage = homePage;
+    public MainViewModel(PageFactory pageFactory) {
+        this.pageFactory = pageFactory;
+        GoToHome();
     }
 
     [RelayCommand]
-    private void SideMenuResize() {
-        SideMenuExpanded = !SideMenuExpanded;
-    }
+    private void SideMenuResize() => SideMenuExpanded = !SideMenuExpanded;
 
     [RelayCommand]
-    private void GoToHome() {
-        CurrentPage = homePage;
-    }
+    private void GoToHome() => CurrentPage = pageFactory.GetPageViewModel(Page.Home);
 
     [RelayCommand]
-    private void GoToProcess() {
-        CurrentPage = processPage;
-    }
+    private void GoToProcess() => CurrentPage = pageFactory.GetPageViewModel(Page.Process);
 
     [RelayCommand]
-    private void GoToActions() {
-        CurrentPage = actionsPage;
-    }
+    private void GoToActions() => CurrentPage = pageFactory.GetPageViewModel(Page.Actions);
 
     [RelayCommand]
-    private void GoToMacros() {
-        CurrentPage = macrosPage;
-    }
+    private void GoToMacros() => CurrentPage = pageFactory.GetPageViewModel(Page.Macros);
 
     [RelayCommand]
-    private void GoToReporter() {
-        CurrentPage = reporterPage;
-    }
+    private void GoToReporter() => CurrentPage = pageFactory.GetPageViewModel(Page.Reporter);
 
     [RelayCommand]
-    private void GoToHistory() {
-        CurrentPage = historyPage;
-    }
+    private void GoToHistory() => CurrentPage = pageFactory.GetPageViewModel(Page.History);
 
     [RelayCommand]
-    private void GoToSettings() {
-        CurrentPage = settingsPage;
-    }
+    private void GoToSettings() => CurrentPage = pageFactory.GetPageViewModel(Page.Settings);
 
-    private bool GetPageIsActive(ViewModelBase page) => page == CurrentPage;
+    private bool GetPageIsActive(Page page) => page == CurrentPage.Page;
 }
