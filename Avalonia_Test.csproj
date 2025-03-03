@@ -29,5 +29,7 @@
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
 
         <PackageReference Include="ReactiveUI" Version="20.1.63" />
+
+        <PackageReference Include="SkiaSharp" Version="3.116.1" />
     </ItemGroup>
 </Project>

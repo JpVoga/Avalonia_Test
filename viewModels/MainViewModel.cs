@@ -40,6 +40,15 @@ public partial class MainViewModel: ViewModelBase {
     public bool HistoryPageIsActive => GetPageIsActive(Page.History);
     public bool SettingsPageIsActive => GetPageIsActive(Page.Settings);
 
+    #pragma warning disable 8618
+        /// <summary>
+        /// Preview only constructor.
+        /// </summary>
+        public MainViewModel() {
+            CurrentPage = new SettingsPageViewModel();
+        }
+    #pragma warning restore 8618
+
     public MainViewModel(PageFactory pageFactory) {
         this.pageFactory = pageFactory;
         GoToHome();

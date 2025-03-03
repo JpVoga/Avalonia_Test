@@ -7,7 +7,47 @@
             xmlns:view="clr-namespace:Avalonia_Test"
             xmlns:vm="clr-namespace:Avalonia_Test"
             x:DataType="vm:SettingsPageViewModel"
-            Foreground="White"
+            Background="{DynamicResource PrimaryBackground}"
+            Foreground="{DynamicResource PrimaryForeground}"
 >
-    Welcome to Settings!
+    <Design.DataContext><vm:SettingsPageViewModel/></Design.DataContext>
+
+    <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, *">
+        <!-- Header -->
+        <Grid Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="125">
+            <Panel ZIndex="-1" ClipToBounds="True">
+                <Panel.Background>
+                    <!-- See OBS0 in program file for how I did this -->
+                    <ImageBrush Source="avares://Avalonia_Test/assets/images/background-settings.png" Stretch="UniformToFill" />
+                </Panel.Background>
+            </Panel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <Label HorizontalAlignment="Center">Settings</Label>
+                <Label HorizontalAlignment="Center">Version 1.0.0 Beta</Label>
+                <Label HorizontalAlignment="Center">Compiled March 3rd 2025</Label>
+            </StackPanel>
+        </Grid>
+
+        <!-- Left side main content -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Spacing="15" Margin="15">
+            <!-- General -->
+            <StackPanel>
+                <Label>General</Label>
+                <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*, Auto">
+                    <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap">
+                        Remove licence from this machine and prepare it to be transfered to another.
+                    </TextBlock>
+
+                    <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xe346;</Label> 
+                            <Label>Process</Label>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
 </UserControl>
+
+<!-- 6 10:00 -->

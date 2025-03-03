@@ -1,6 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Input;
-using Avalonia.Styling;
 
 namespace Avalonia_Test;
 

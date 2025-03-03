@@ -18,3 +18,5 @@ class Program {
             .WithInterFont()
             .LogToTrace();
 }
+
+// OBS0: 'dotnet tool install --global Svg.Skia.Converter' then 'Svg.Skia.Converter -f assets\images\background-settings.svg -o assets\images'

@@ -10,6 +10,8 @@
         Title="Avalonia_Test"
         Width="1024" Height="512"
 >
+    <Design.DataContext><vm:MainViewModel/></Design.DataContext> <!-- Only in preview. -->
+
     <!-- Window may only have one top element! -->
     <!-- '<StackPanel>' stacks things horizontally or vertically -->
     <!-- First Column take as much width as it needs for components, second one proportional unit of the rest -->
@@ -19,7 +21,6 @@
                 <StackPanel Grid.Row="0" Spacing="12">
                     <!-- Had to 'dotnet add package Avalonia.Svg.Skia' -->
                     <!-- Normal image: '<Image Source= />' -->
-                    <StackPanel></StackPanel>
                     <Svg PointerPressed="OnSideMenuImageClicked" Path="avares://Avalonia_Test/assets/images/logo.svg" Width="220" IsVisible="{Binding SideMenuExpanded}" />
                     <Svg PointerPressed="OnSideMenuImageClicked" Path="avares://Avalonia_Test/assets/images/icon.svg" Width="20" IsVisible="{Binding !SideMenuExpanded}" />
 
