@@ -1,5 +1,6 @@
 using System.IO;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +14,7 @@ public partial class App: Application {
 
     public override void OnFrameworkInitializationCompleted() {
         base.OnFrameworkInitializationCompleted(); // This was called in the end but I moved it to the start, time will tell if this was a good choice
-    
+
         ServiceCollection collection = new();
         collection.AddSingleton<MainViewModel>(); // Contructors of services could now take a 'MainViewModel' instance I think???
         collection.AddSingleton<PageFactory>();
@@ -44,8 +45,6 @@ public partial class App: Application {
                 DataContext = services.GetRequiredService<MainViewModel>() // The 'Required' part ensures it is not null
             };
         }
-
-        ImageConvert.SvgToPng("./assets/images/background-settings.svg");
     }
 }
 

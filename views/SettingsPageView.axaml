@@ -12,13 +12,12 @@
 >
     <Design.DataContext><vm:SettingsPageViewModel/></Design.DataContext>
 
-    <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, *">
+    <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, *" ShowGridLines="False"> <!-- Enable 'ShowGridLines' to visualize grid -->
         <!-- Header -->
         <Grid Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Height="125">
-            <Panel ZIndex="-1" ClipToBounds="True">
+            <Panel x:Name="HeaderBackgroundPanel" ZIndex="-1" ClipToBounds="True">
                 <Panel.Background>
-                    <!-- See OBS0 in program file for how I did this -->
-                    <ImageBrush Source="avares://Avalonia_Test/assets/images/background-settings.png" Stretch="UniformToFill" />
+                    <ImageBrush Source="avares://Avalonia_Test/assets/images/background-settings.png" Stretch="UniformToFill" /> <!-- Converted to PNG via 'ImageMagick' -->
                 </Panel.Background>
             </Panel>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
@@ -34,20 +33,58 @@
             <StackPanel>
                 <Label>General</Label>
                 <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*, Auto">
+                    <!-- Relase Licence -->
                     <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap">
                         Remove licence from this machine and prepare it to be transfered to another.
                     </TextBlock>
-
                     <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch">
                         <StackPanel Orientation="Horizontal">
-                            <Label Classes="Icon">&#xe346;</Label> 
-                            <Label>Process</Label>
+                            <Label Classes="Icon">&#xe2fe;</Label> 
+                            <Label>Release License</Label>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Skip files -->
+                    <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap">
+                        Skip files if only Open, Save(optional) and Close are valid actions.
+                    </TextBlock>
+                    <CheckBox Grid.Row="1" Grid.Column="1" />
+
+                    <!-- Duplicate files -->
+                    <TextBlock Grid.Row="2" Grid.Column="0" TextWrapping="Wrap">
+                        Allow duplicate entries of the same file in project list.
+                    </TextBlock>
+                    <CheckBox Grid.Row="2" Grid.Column="1" />
+                </Grid>
+            </StackPanel>
+
+            <!-- Locations -->
+            <StackPanel>
+                <Label>Locations</Label>
+                <Grid ColumnDefinitions="*, Auto">
+                    <StackPanel Grid.Column="0">
+                        <TextBlock TextWrapping="Wrap">
+                            Add or remove the locations to search for Reporter Temnplates, Macros, Actions and other custom files or templates.
+                        </TextBlock>
+
+                        <TextBlock TextWrapping="Wrap">
+                             * All subdirectories will be searched automatically
+                        </TextBlock>
+                    </StackPanel>
+
+                    <Button Grid.Column="1" HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label>+ Folder</Label>
                         </StackPanel>
                     </Button>
                 </Grid>
+                <ListBox ItemsSource="{Binding LocationPaths}">
+                </ListBox>
             </StackPanel>
         </StackPanel>
+
+        <!-- Right side content -->
     </Grid>
 </UserControl>
 
-<!-- 6 10:00 -->
+<!-- 6 22:00 -->
