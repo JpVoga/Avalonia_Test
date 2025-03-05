@@ -84,7 +84,77 @@
         </StackPanel>
 
         <!-- Right side content -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Spacing="15" Margin="15">
+            <!-- Solidworks host -->
+            <StackPanel>
+                <Label>SolidWorks Host</Label>
+                <TextBlock TextWrapping="Wrap">
+                    BatchProcess can work locally on current machine, or on any machine accessible over the network or even internet.<LineBreak/>
+                    Enter the machine's IP address, network name or localhost for this machine.
+                </TextBlock>
+                <ComboBox>
+                </ComboBox>
+                <Label>Connection established!</Label>
+            </StackPanel>
+
+            <!-- PDM Enterprise -->
+            <StackPanel Spacing="15">
+                <Label>PDM Enterprise</Label>
+                <TextBlock TextWrapping="Wrap">
+                    If you are using PDM Enterprise enter the credentials below and test login.
+                    BatchProcess can then automatically checking in and out files from PDM Enterprise.
+                </TextBlock>
+                <Grid ColumnDefinitions="*, *, *">
+                    <ComboBox Grid.Column="0" HorizontalAlignment="Stretch"></ComboBox>
+                    <TextBox Grid.Column="1" HorizontalAlignment="Stretch"></TextBox>
+                    <TextBox Grid.Column="2" HorizontalAlignment="Stretch"></TextBox>
+                </Grid>
+                <StackPanel Orientation="Horizontal">
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xe23e;</Label> 
+                            <Label>Login</Label>
+                        </StackPanel>
+                    </Button>
+
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xe094;</Label> 
+                            <Label>Refresh Vault</Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Label>Connection established!</Label>
+            </StackPanel>
+
+            <!-- Settings Cache -->
+            <StackPanel Spacing="15">
+                <Label>Settings Cache</Label>
+                <TextBlock TextWrapping="Wrap">
+                    Various settings are stored locally including Processes, Actions, Macros, Reports and History.<LineBreak /> <LineBreak />
+                    If you are experiencing issues try clearing the cache (this won't remove the licence).
+                </TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xec54;</Label> 
+                            <Label>Clear Cache</Label>
+                        </StackPanel>
+                    </Button>
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xe5de;</Label> 
+                            <Label>Export Cache</Label>
+                        </StackPanel>
+                    </Button>
+                    <Button HorizontalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Classes="Icon">&#xe20c;</Label> 
+                            <Label>Import Cache</Label>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>
-
-<!-- 6 22:00 -->
